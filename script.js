@@ -1,13 +1,19 @@
+const className = 'nes';
+
 // Adds a class to the body to enable custom cursor icon
 function addCursorClass() {
-    document.body.classList.add('nes');
-    console.info('\x1b[32m%s\x1b[0m', 'NES Cursor has been successfully injected!');
+    if (!document.body.classList.contains(className)) {
+        document.body.classList.add(className);
+        console.info('\x1b[32m%s\x1b[0m', 'NES Cursor has been successfully injected!');
+    }
 }
 
 // Remove class to the body to disable custom cursor icon
 function removeCursorClass() {
-    document.body.classList.remove('nes');
-    console.info('\x1b[33m%s\x1b[0m', 'NES Cursor has been securely removed.');
+    if (document.body.classList.contains(className)) {
+        document.body.classList.remove(className);
+        console.info('\x1b[33m%s\x1b[0m', 'NES Cursor has been securely removed.');
+    }
 }
 
 // Checks status on page load
@@ -15,6 +21,8 @@ function checkStatus() {
     chrome.storage.local.get('enabled', function (data) {
         if (data.enabled) {
             addCursorClass();
+        } else {
+            removeCursorClass();
         }
     });
 }
