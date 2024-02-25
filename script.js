@@ -19,8 +19,6 @@ chrome.storage.local.get('enabled', function (data) {
 
 // Detects flag change
 chrome.storage.onChanged.addListener((changes) => {
-    console.log('change detected!');
-
     const isEnabled = changes.enabled.newValue;
     if (isEnabled) {
         addCursorClass();
