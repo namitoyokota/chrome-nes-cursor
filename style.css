@@ -1,0 +1,8 @@
+.nes * {
+    cursor: url(https://raw.githubusercontent.com/nostalgic-css/NES.css/develop/assets/cursor.png), auto !important;
+}
+
+.nes a,
+.nes button {
+    cursor: url(https://raw.githubusercontent.com/nostalgic-css/NES.css/develop/assets/cursor-click.png), pointer !important;
+}
