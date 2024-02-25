@@ -11,11 +11,15 @@ function removeCursorClass() {
 }
 
 // Checks status on page load
-chrome.storage.local.get('enabled', function (data) {
-    if (data.enabled) {
-        addCursorClass();
-    }
-});
+function checkStatus() {
+    chrome.storage.local.get('enabled', function (data) {
+        if (data.enabled) {
+            addCursorClass();
+        }
+    });
+}
+
+checkStatus();
 
 // Detects flag change
 chrome.storage.onChanged.addListener((changes) => {
@@ -24,5 +28,12 @@ chrome.storage.onChanged.addListener((changes) => {
         addCursorClass();
     } else {
         removeCursorClass();
+    }
+});
+
+// Listens to message from background
+chrome.runtime.onMessage.addListener((request) => {
+    if (request.message === "Check status") {
+        checkStatus();
     }
 });
