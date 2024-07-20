@@ -38,10 +38,3 @@ chrome.storage.onChanged.addListener((changes) => {
         removeCursorClass();
     }
 });
-
-// Listens to message from background
-chrome.runtime.onMessage.addListener((request) => {
-    if (request.message === "Check status") {
-        checkStatus();
-    }
-});
