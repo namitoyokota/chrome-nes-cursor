@@ -1,6 +1,6 @@
 {
     "name": "NES Cursor",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "manifest_version": 3,
     "description": "Chromium extension to turn your cursor into NES style.",
     "homepage_url": "https://github.com/namitoyokota/chrome-nes-cursor",
